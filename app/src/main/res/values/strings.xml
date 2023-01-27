@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Gui_Login_Registro</string>
-    <string name="nacEsp">Español</string>
-    <string name="nacAle">Aleman</string>
-    <string name="nacFra">Francés</string>
-    <string name="nacBul">Búlgaro</string>
+    <string-array name="Nacionalidad">
+        <item>Español</item>
+        <item>Turco</item>
+        <item>Francés</item>
+        <item>Alemán</item>
+        <item>Belga</item>
+    </string-array>
 </resources>
