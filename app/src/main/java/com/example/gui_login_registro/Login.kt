@@ -22,24 +22,33 @@ class Login : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.login).setOnClickListener {
-
+            var comp = false
             for (i in listaPersona)
                 if (findViewById<EditText>(R.id.editTextTextPassword).text.toString() == i.pw && findViewById<EditText>(
                         R.id.user2
                     ).text.toString() == i.nombre
                 ) {
+                    comp = true
                     val intent = Intent(this, Bienvenida::class.java)
-                    intent.putExtra("nombreUsuario", findViewById<EditText>(R.id.user2).text.toString())
-                    startActivity (intent)
+                    intent.putExtra(
+                        "nombreUsuario",
+                        findViewById<EditText>(R.id.user2).text.toString()
+                    )
+                    startActivity(intent)
                 }
-            else if (findViewById<EditText>(R.id.user2).text.toString() == findViewById<EditText>(R.id.editTextTextPassword).text.toString() && findViewById<EditText>(
+            if (findViewById<EditText>(R.id.user2).text.toString() == findViewById<EditText>(R.id.editTextTextPassword).text.toString() && findViewById<EditText>(
                     R.id.user2
                 ).text.toString() != ""
             ) {
                 val intent = Intent(this, Bienvenida::class.java)
                 intent.putExtra("nombreUsuario", findViewById<EditText>(R.id.user2).text.toString())
                 startActivity(intent)
-            } else
+            } else if (!comp && findViewById<EditText>(R.id.user2).text.toString() != findViewById<EditText>(
+                    R.id.editTextTextPassword
+                ).text.toString() || findViewById<EditText>(
+                    R.id.user2
+                ).text.toString() == ""
+            )
                 Toast.makeText(this, "El usuario y la contraseña no coinciden", Toast.LENGTH_SHORT)
                     .show()
         }
