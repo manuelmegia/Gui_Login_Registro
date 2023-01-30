@@ -10,8 +10,6 @@ class Bienvenida : AppCompatActivity() {
         setContentView(R.layout.activity_bienvenida)
 
         var biUsuario = intent.getStringExtra("nombreUsuario")
-        var biRegUsuario = intent.getStringExtra("nombreDelRegistro")
         findViewById<TextView>(R.id.textView9).text = "Bienvenido " + biUsuario
-        findViewById<TextView>(R.id.textView9).text = "Bienvenido " + biRegUsuario
     }
 }

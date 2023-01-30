@@ -22,11 +22,22 @@ class Login : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.login).setOnClickListener {
-            if (findViewById<EditText>(R.id.user2).text.toString() == findViewById<EditText>(R.id.editTextTextPassword).text.toString() && findViewById<EditText>(
+
+            for (i in listaPersona)
+                if (findViewById<EditText>(R.id.editTextTextPassword).text.toString() == i.pw && findViewById<EditText>(
+                        R.id.user2
+                    ).text.toString() == i.nombre
+                ) {
+                    val intent = Intent(this, Bienvenida::class.java)
+                    intent.putExtra("nombreUsuario", findViewById<EditText>(R.id.user2).text.toString())
+                    startActivity (intent)
+                }
+            else if (findViewById<EditText>(R.id.user2).text.toString() == findViewById<EditText>(R.id.editTextTextPassword).text.toString() && findViewById<EditText>(
                     R.id.user2
                 ).text.toString() != ""
             ) {
                 val intent = Intent(this, Bienvenida::class.java)
+                intent.putExtra("nombreUsuario", findViewById<EditText>(R.id.user2).text.toString())
                 startActivity(intent)
             } else
                 Toast.makeText(this, "El usuario y la contraseña no coinciden", Toast.LENGTH_SHORT)
