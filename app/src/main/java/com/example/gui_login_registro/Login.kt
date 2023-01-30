@@ -49,7 +49,7 @@ class Login : AppCompatActivity() {
                     R.id.user2
                 ).text.toString() == ""
             )
-                Toast.makeText(this, "El usuario y la contraseña no coinciden", Toast.LENGTH_SHORT)
+                Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT)
                     .show()
         }
     }
